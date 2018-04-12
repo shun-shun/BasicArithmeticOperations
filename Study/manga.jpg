@@ -1,0 +1,1047 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:og="http://ogp.me/ns#">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>JavaýäýHttpClientýýýýåý - CLOVER</title>
+<link rel="start" href="/" title="CLOVER">
+<link rel="help" href="/help" title="ý%ýý">
+<link rel="prev" href="/Kazuhira/20131022/1382455739" title="[Java][Byteman]ý%ýý%ýýýýýýý...">
+<link rel="next" href="/Kazuhira/20131027/1382867045" title="[Hazelcast]HazelcastýýContinuo...">
+
+<link rel="stylesheet" href="http://d.st-hatena.com/statics/css/base.css?07618f388c0425a42ed1b087de443bcfa0a98a9d" type="text/css" media="all">
+<link rel="stylesheet" href="http://d.st-hatena.com/statics/css/headerstyle_wh.css?1e7f1ae8a305b254105e3093bcf711b2af81c2a0" type="text/css" media="all">
+<link rel="stylesheet" href="http://d.st-hatena.com/statics/theme/monotone-flower/monotone-flower.css?1e7f1ae8a305b254105e3093bcf711b2af81c2a0" type="text/css" media="all">
+
+
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://d.hatena.ne.jp/Kazuhira/rss">
+<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://d.hatena.ne.jp/Kazuhira/rss2">
+
+<link rel="meta" type="application/rdf+xml" title="FOAF" href="http://d.hatena.ne.jp/Kazuhira/foaf" />
+<link rel="search" type="application/opensearchdescription+xml" href="http://d.hatena.ne.jp/Kazuhira/opensearch/diary.xml" title="CLOVERýýýýýýýýýý" />
+<link rel="search" type="application/opensearchdescription+xml" href="http://d.hatena.ne.jp/Kazuhira/opensearch/archive.xml" title="CLOVERýýýýýýýýý" />
+
+
+
+<link rel="shortcut icon" href="http://d.hatena.ne.jp/images/wh_favicon.ico">
+
+
+
+<link rel="canonical" href="http://d.hatena.ne.jp/Kazuhira/20131026/1382796711">
+
+
+<style type="text/css">
+<!-- 
+
+-->
+</style>
+
+
+<script type="text/javascript">if(/[\x3c\x3e\x22]/.test(location.hash))location.hash=location.hash.replace(/[\x3c\x3e\x22]/g,'');if(/[\x3c\x3e]/.test(document.referrer))location.href=location.href;</script>
+
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaýäýHttpClientýýýýåý - CLOVER">
+<meta property="og:url" content="http://d.hatena.ne.jp/Kazuhira/20131026/1382796711">
+<meta property="og:description" content="ýýýýýýýýJAX-RSý¥ýýdýýýý$¾$äýýýý$"ýbýáýýäýýýý$ýýR$¤äýýýý¤ý¤ýý¡ý java.netýýýýJ..">
+<meta property="og:site_name" content="ýä¤¥ýýýýýý|">
+
+
+<!--
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/">
+<rdf:Description rdf:about="http://d.hatena.ne.jp/Kazuhira/20131026/1382796711">
+   <foaf:maker rdf:parseType="Resource">
+     <foaf:holdsAccount>
+       <foaf:OnlineAccount foaf:accountName="Kazuhira">
+         <foaf:accountServiceHomepage rdf:resource="http://www.hatena.ne.jp/" />
+       </foaf:OnlineAccount>
+     </foaf:holdsAccount>
+   </foaf:maker>
+</rdf:Description>
+</rdf:RDF>
+-->
+
+<link rel="alternate" media="handheld" type="text/html" href="http://d.hatena.ne.jp/Kazuhira/mobile?date=20131026&section=1382796711" />
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+<rdf:Description
+  rdf:about="http://d.hatena.ne.jp/Kazuhira/20131026/1382796711"
+  trackback:ping="http://d.hatena.ne.jp/Kazuhira/20131026/1382796711"
+  dc:title="[Java]JavaýäýHttpClientýýýýåý"
+  dc:identifier="http://d.hatena.ne.jp/Kazuhira/20131026/1382796711" />
+</rdf:RDF>
+-->
+
+
+
+<meta name="twitter:card" content="summary">
+
+<meta name="twitter:site:id" content="1336830198">
+
+
+
+<script type="text/javascript" src="http://s.hatena.ne.jp/js/HatenaStar.js"></script>
+<script type="text/javascript">
+Hatena.Star.SiteConfig = {
+  entryNodes: {
+    'div.section': {
+      uri: 'h3 a',
+      title: 'h3',
+      container: 'h3'
+    }
+  }
+};
+Hatena.Author  = new Hatena.User('Kazuhira');
+Hatena.DiaryName  = new Hatena.User('Kazuhira');
+
+</script>
+
+
+
+
+
+<script type="text/javascript" src="http://d.st-hatena.com/statics/js/adcolor.js?1e7f1ae8a305b254105e3093bcf711b2af81c2a0"></script>
+
+
+<script type="text/javascript" src="http://d.st-hatena.com/statics/js/quick_pager.js?1e7f1ae8a305b254105e3093bcf711b2af81c2a0"></script>
+<script type="text/javascript" src="http://d.st-hatena.com/statics/js/diary_utils.js?1e7f1ae8a305b254105e3093bcf711b2af81c2a0"></script>
+<script type="text/javascript" src="http://d.st-hatena.com/statics/js/max_width_fotolife.js?1e7f1ae8a305b254105e3093bcf711b2af81c2a0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="http://d.st-hatena.com/statics/js/jquery-1.4.2.min.js?1e7f1ae8a305b254105e3093bcf711b2af81c2a0"></script>
+<script type="text/javascript">
+  jQuery.noConflict()(function($){
+    var j$ = jQuery;
+  });
+</script>
+
+
+
+
+</head>
+<body>
+
+  <script>Hatena.Diary.UaTrakingID = 'UA-46127385-2';</script>
+ 
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58NPH6"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-58NPH6');</script>
+<!-- End Google Tag Manager -->
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.6&appId=189164841141201";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+<div id="simple-header">
+
+  <a href="http://www.hatena.ne.jp/"><img src="/images/hatena-simple_wh.gif" alt="Hatena::" title="Hatena::" id="logo-hatena" width="65" height="17"></a><a href="/"><img src="/images/diary-simple_wh.gif" alt="ý¥ý(Diary)" title="Diary" id="logo-diary" width="43" height="17"></a>
+  <form method="get" action="/search" class="search-form">
+    <input type="text" class="search-word" name="word" value=""><input name="name" value="Kazuhira" type="hidden"><input type="submit" name="diary" value="ýýýý" class="search-button"><input type="submit" name="submit" value="ýýýý" class="search-button">
+  </form>
+  <ul class="menu">
+    <li><a href="/Kazuhira/">ý¥ýý%åý</a></li>
+    <li><a href="/Kazuhira/archive">ýýýýýýýý</a></li>
+
+
+
+    <li><a href="https://www.hatena.ne.jp/login?backurl=http%3A%2F%2Fd.hatena.ne.jp%2FKazuhira%2F20131026%2F1382796711&add_timestamp=1">ýýýýýý</a></li>
+    <li><a href="https://www.hatena.ne.jp/register?location=http%3A%2F%2Fd.hatena.ne.jp%3Fvia%3D200186&amp;via=200186">5ýýý¥ýýýýý</a></li>
+
+  </ul>
+</div>
+
+
+
+<h1><a href="http://d.hatena.ne.jp/Kazuhira/">CLOVER</a></h1>
+<div class="hatena-body">
+<div class="main">
+
+
+
+
+
+
+
+
+<div class="calendar" id="pager-top">
+  <a rel="prev" href="/Kazuhira/20131022/1382455739" class="prev">&lt;[Java][Byteman]ý%ýý%ýýýýýýý...</a>&nbsp;<span class="delimiter">|</span>&nbsp;<a rel="next" href="/Kazuhira/20131027/1382867045" class="next">[Hazelcast]HazelcastýýContinuo...&gt;</a><span id="edit-in-place-add"></span>
+</div>
+<div id="days">
+
+<div class="day day-br">
+<h2><a href="http://d.hatena.ne.jp/Kazuhira/20131026" rel="nofollow"><span class="date">2013-10-26</span></a></h2>
+
+<div class="body">
+
+<!-- rakuten_ad_target_begin -->
+<!-- google_ad_section_start -->
+
+		<div class="section">
+			<h3 class="title"><a href="/Kazuhira/20131026/1382796711" name="1382796711">JavaýäýHttpClientýýýýåý</a></h3>
+			<p class="sectionheader"><span class="sectioncategory"><a href="/Kazuhira/searchdiary?word=%2A%5BJava%5D" class="sectioncategory">Java</a></span></p>
+<p>ýýýýýýýý<a class="keyword" href="http://d.hatena.ne.jp/keyword/JAX%2DRS">JAX-RS</a>ý¥ýýdýýýý$¾$äýýýý$"ýbýáýýäýýýý$ýýR$¤äýýýý¤ý¤ýý¡ý<br><br><a class="keyword" href="http://d.hatena.ne.jp/keyword/java">java</a>.netýýýý<a class="keyword" href="http://d.hatena.ne.jp/keyword/JAX%2DRS">JAX-RS</a>ý¤áýýýýýý$ýHttpClientý¥ýýýåýåýýýýýR$¤äýýýý;äýý¤ýýý<br><br>ýýýýåý$ýý¤áý</p>
+<ul>
+				<li> ýýñýýGETýýPOSTýý$ý</li>
+				<li> <a class="keyword" href="http://d.hatena.ne.jp/keyword/HTTP%A5%B9%A5%C6%A1%BC%A5%BF%A5%B9%A5%B3%A1%BC%A5%C9">HTTPýýý¡ýýýýýýýýýýý</a>ýý200ýýýdýýý=ý9ýý</li>
+				<li> ýyýeWdWåWaýýýýýýäýýý</li>
+			</ul>
+<p>ýäýýýýeý|ýýýýURLýýýWáýýåýýW$$ýý¤äýR$¤¤ýý¤áýýýýýýýýý/ýýýcý¤ýýýýýýý¤¤ýýýýý¤ýýýä¤ýý$áý<br><br>ý¤ýýýýåýaýý¹$äý<a class="keyword" href="http://d.hatena.ne.jp/keyword/Maven">Maven</a>ýýýýdýý¤ýýýýý<br></p>
+			<h4> <a class="keyword" href="http://d.hatena.ne.jp/keyword/java">java</a>.net.URL</h4>
+<p><a class="keyword" href="http://d.hatena.ne.jp/keyword/Java">Java</a>xýýdý¥ýýý$ä½ýýýáýä¤ý¤ýýýýäý<a class="keyword" href="http://d.hatena.ne.jp/keyword/Maven">Maven</a>ýý¸ý7ýý¤dýýýýääýýý<br><br>ýýýýå}ýýýýýý<br>src/main/<a class="keyword" href="http://d.hatena.ne.jp/keyword/java">java</a>/httpclient/example/JavaNetHttpClient.<a class="keyword" href="http://d.hatena.ne.jp/keyword/java">java</a></p>
+<pre class="syntax-highlight">
+<span class="synPreProc">package</span> httpclient.example;
+
+<span class="synPreProc">import</span> java.io.BufferedReader;
+<span class="synPreProc">import</span> java.io.BufferedWriter;
+<span class="synPreProc">import</span> java.io.InputStreamReader;
+<span class="synPreProc">import</span> java.io.IOException;
+<span class="synPreProc">import</span> java.io.OutputStreamWriter;
+<span class="synPreProc">import</span> java.net.URL;
+<span class="synPreProc">import</span> java.net.HttpURLConnection;
+<span class="synPreProc">import</span> java.nio.charset.StandardCharsets;
+
+<span class="synType">public</span> <span class="synType">class</span> JavaNetHttpClient {
+    <span class="synType">public</span> <span class="synType">static</span> <span class="synType">void</span> main(String[] args) {
+        executeGet();
+        executePost();
+    }
+
+    <span class="synType">private</span> <span class="synType">static</span> <span class="synType">void</span> executeGet() {
+        System.out.println(<span class="synConstant">&quot;===== HTTP GET Start =====&quot;</span>);
+        <span class="synStatement">try</span> {
+            URL url = <span class="synStatement">new</span> URL(<span class="synConstant">&quot;http://localhost:8080/get?param=value&quot;</span>);
+
+            HttpURLConnection connection = <span class="synConstant">null</span>;
+
+            <span class="synStatement">try</span> {
+                connection = (HttpURLConnection) url.openConnection();
+                connection.setRequestMethod(<span class="synConstant">&quot;GET&quot;</span>);
+
+                <span class="synStatement">if</span> (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                    <span class="synStatement">try</span> (InputStreamReader isr = <span class="synStatement">new</span> InputStreamReader(connection.getInputStream(),
+                                                                       StandardCharsets.UTF_8);
+                         BufferedReader reader = <span class="synStatement">new</span> BufferedReader(isr)) {
+                        String line;
+                        <span class="synStatement">while</span> ((line = reader.readLine()) != <span class="synConstant">null</span>) {
+                            System.out.println(line);
+                        }
+                    }
+                }
+            } <span class="synStatement">finally</span> {
+                <span class="synStatement">if</span> (connection != <span class="synConstant">null</span>) {
+                    connection.disconnect();
+                }
+            }
+        } <span class="synStatement">catch</span> (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(<span class="synConstant">&quot;===== HTTP GET End =====&quot;</span>);
+    }
+
+    <span class="synType">private</span> <span class="synType">static</span> <span class="synType">void</span> executePost() {
+        System.out.println(<span class="synConstant">&quot;===== HTTP POST Start =====&quot;</span>);
+        <span class="synStatement">try</span> {
+            URL url = <span class="synStatement">new</span> URL(<span class="synConstant">&quot;http://localhost:8080/post&quot;</span>);
+
+            HttpURLConnection connection = <span class="synConstant">null</span>;
+
+            <span class="synStatement">try</span> {
+                connection = (HttpURLConnection) url.openConnection();
+                connection.setDoOutput(<span class="synConstant">true</span>);
+                connection.setRequestMethod(<span class="synConstant">&quot;POST&quot;</span>);
+
+                BufferedWriter writer = <span class="synStatement">new</span> BufferedWriter(<span class="synStatement">new</span> OutputStreamWriter(connection.getOutputStream(),
+                                                                                  StandardCharsets.UTF_8));
+                writer.write(<span class="synConstant">&quot;POST Body&quot;</span>);
+                writer.write(<span class="synConstant">&quot;</span><span class="synSpecial">\r\n</span><span class="synConstant">&quot;</span>);
+                writer.write(<span class="synConstant">&quot;Hello Http Server!!&quot;</span>);
+                writer.write(<span class="synConstant">&quot;</span><span class="synSpecial">\r\n</span><span class="synConstant">&quot;</span>);
+                writer.flush();
+
+                <span class="synStatement">if</span> (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                    <span class="synStatement">try</span> (InputStreamReader isr = <span class="synStatement">new</span> InputStreamReader(connection.getInputStream(),
+                                                                       StandardCharsets.UTF_8);
+                         BufferedReader reader = <span class="synStatement">new</span> BufferedReader(isr)) {
+                        String line;
+                        <span class="synStatement">while</span> ((line = reader.readLine()) != <span class="synConstant">null</span>) {
+                            System.out.println(line);
+                        }
+                    }
+                }
+            } <span class="synStatement">finally</span> {
+                <span class="synStatement">if</span> (connection != <span class="synConstant">null</span>) {
+                    connection.disconnect();
+                }
+            }
+        } <span class="synStatement">catch</span> (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(<span class="synConstant">&quot;===== HTTP POST End =====&quot;</span>);
+    }
+}
+</pre>
+
+<p><a class="keyword" href="http://d.hatena.ne.jp/keyword/java">java</a>.net.URLýýopenConnectioný}ýådýýýdýý3ý$áýHttpURLConnectionýýýýýýýý3ý$ýýäýý¤ýýýHttpURLConnection#getResponseCodeýýURLConnection#getInputStreamýáýýý$ýýýýýýý3ý$ýýäýý¤ýýý<br><br>ýýýýýýýý¥ýýyýäý¤ýHTTPý?ýýäýý3ý$ýýäýý¤ýýýýýýý¤õýýýä¤ýý¤áýýýýýý$ýýýý$äýý¤ý¤ýýýýi<br></p>
+			<h4> <a class="keyword" href="http://d.hatena.ne.jp/keyword/Apache">Apache</a> HttpComponentsýýHttpClientýý</h4>
+<p>ýýý¤ý<a class="keyword" href="http://d.hatena.ne.jp/keyword/Java">Java</a>ýý1ýým>ýýHTTPýýýdýýýý%dý¥ýcCommons HttpClientýºýýýýbýýý¤ý$ýý¤ýýý;äýý¤ýýý<br><br>HttpClient<br><a href="http://hc.apache.org/httpcomponents-client-4.3.x/index.html" target="_blank">http://hc.apache.org/httpcomponents-client-4.3.x/index.html</a><br><br>4ýäýýbCoreýýClientýý¬ýýýý¤ýýýýaý<br><br>ýýýýýýýäºÿýýýýýýäý4.3.1ý¤¤áý<a class="keyword" href="http://d.hatena.ne.jp/keyword/Maven">Maven</a>ýý¸ý7ýýäýý¤&ýýýýýýýý¤ýýý</p>
+<pre class="syntax-highlight">
+    <span class="synIdentifier">&lt;dependency&gt;</span>
+      <span class="synIdentifier">&lt;groupId&gt;</span>org.apache.httpcomponents<span class="synIdentifier">&lt;/groupId&gt;</span>
+      <span class="synIdentifier">&lt;artifactId&gt;</span>httpclient<span class="synIdentifier">&lt;/artifactId&gt;</span>
+      <span class="synIdentifier">&lt;version&gt;</span>4.3.1<span class="synIdentifier">&lt;/version&gt;</span>
+    <span class="synIdentifier">&lt;/dependency&gt;</span>
+</pre>
+<br>
+<p>ýýýýå}ýýýýýý<br>src/main/<a class="keyword" href="http://d.hatena.ne.jp/keyword/java">java</a>/httpclient/example/HttpComponentsHttpClient.<a class="keyword" href="http://d.hatena.ne.jp/keyword/java">java</a></p>
+<pre class="syntax-highlight">
+<span class="synPreProc">package</span> httpclient.example;
+
+<span class="synPreProc">import</span> java.io.IOException;
+<span class="synPreProc">import</span> java.nio.charset.StandardCharsets;
+
+<span class="synPreProc">import</span> org.apache.http.HttpEntity;
+<span class="synPreProc">import</span> org.apache.http.HttpStatus;
+<span class="synPreProc">import</span> org.apache.http.entity.StringEntity;
+<span class="synPreProc">import</span> org.apache.http.util.EntityUtils;
+<span class="synPreProc">import</span> org.apache.http.client.methods.CloseableHttpResponse;
+<span class="synPreProc">import</span> org.apache.http.client.methods.HttpGet;
+<span class="synPreProc">import</span> org.apache.http.client.methods.HttpPost;
+<span class="synPreProc">import</span> org.apache.http.impl.client.CloseableHttpClient;
+<span class="synPreProc">import</span> org.apache.http.impl.client.HttpClients;
+<span class="synPreProc">import</span> org.apache.http.impl.client.HttpClientBuilder;
+
+<span class="synType">public</span> <span class="synType">class</span> HttpComponentsHttpClient {
+    <span class="synType">public</span> <span class="synType">static</span> <span class="synType">void</span> main(String[] args) {
+        executeGet();
+        executePost();
+    }
+
+    <span class="synType">private</span> <span class="synType">static</span> <span class="synType">void</span> executeGet() {
+        System.out.println(<span class="synConstant">&quot;===== HTTP GET Start =====&quot;</span>);
+
+        <span class="synStatement">try</span> (CloseableHttpClient httpClient = HttpClients.createDefault()) {
+        <span class="synComment">// ý7ýýýý</span>
+        <span class="synComment">// try (CloseableHttpClient httpClient = HttpClientBuilder.create().build()) {</span>
+            HttpGet getMethod = <span class="synStatement">new</span> HttpGet(<span class="synConstant">&quot;http://localhost:8080/get?param=value&quot;</span>);
+
+            <span class="synStatement">try</span> (CloseableHttpResponse response = httpClient.execute(getMethod)) {
+                <span class="synStatement">if</span> (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+                    HttpEntity entity = response.getEntity();
+                    System.out.println(EntityUtils.toString(entity,
+                                                            StandardCharsets.UTF_8));
+                }
+            }
+        } <span class="synStatement">catch</span> (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(<span class="synConstant">&quot;===== HTTP GET End =====&quot;</span>);
+    }
+
+    <span class="synType">private</span> <span class="synType">static</span> <span class="synType">void</span> executePost() {
+        System.out.println(<span class="synConstant">&quot;===== HTTP POST Start =====&quot;</span>);
+
+        <span class="synStatement">try</span> (CloseableHttpClient httpClient = HttpClients.createDefault()) {
+        <span class="synComment">// ý7ýýýý</span>
+        <span class="synComment">// try (CloseableHttpClient httpClient = HttpClientBuilder.create().build()) {</span>
+            HttpPost postMethod = <span class="synStatement">new</span> HttpPost(<span class="synConstant">&quot;http://localhost:8080/post&quot;</span>);
+
+            StringBuilder builder = <span class="synStatement">new</span> StringBuilder();
+            builder.append(<span class="synConstant">&quot;POST Body&quot;</span>);
+            builder.append(<span class="synConstant">&quot;</span><span class="synSpecial">\r\n</span><span class="synConstant">&quot;</span>);
+            builder.append(<span class="synConstant">&quot;Hello Http Server!!&quot;</span>);
+            builder.append(<span class="synConstant">&quot;</span><span class="synSpecial">\r\n</span><span class="synConstant">&quot;</span>);
+
+            postMethod.setEntity(<span class="synStatement">new</span> StringEntity(builder.toString(),
+                                                  StandardCharsets.UTF_8));
+
+            <span class="synStatement">try</span> (CloseableHttpResponse response = httpClient.execute(postMethod)) {
+                <span class="synStatement">if</span> (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+                    HttpEntity entity = response.getEntity();
+                    System.out.println(EntityUtils.toString(entity,
+                                                            StandardCharsets.UTF_8));
+                }
+            }
+        } <span class="synStatement">catch</span> (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(<span class="synConstant">&quot;===== HTTP POST End =====&quot;</span>);
+    }
+}
+</pre>
+<br>
+<p>ýýýýýýDefaultHttpClientý$ýý$ä¤ýýýý;äýý¤ýýýýýýýýýäý<a class="keyword" href="http://d.hatena.ne.jp/keyword/API">API</a>ýýýdýäýý&ýäýýýýýýýý¤ý¤ýý¡ýýýý$ýDefaultHttpClientýý$ýýýý$ýýýýýýý©ý·yR=$ýý¤õýýdýý¤ýýýýý<br><br>ýýýäáýHttpClientBuilderýúýýýýýý+ýýý°äýHttpClientsýýýýýýýýýýý&ýäýýýýýý»ýý·ýýáýCloseableHttpClientýäýýýýäýýýýyýeWdbCloseableHttpResponseýä¤ä¤ýý¤ýýýý!ý<br><br>ýýýý¾ýýHttpEntityýý$äýý9ýý$ýýýýýdýä¤ýý¤ýýý<br></p>
+			<h4> <a class="keyword" href="http://d.hatena.ne.jp/keyword/Apache">Apache</a> HttpComponentsýýFluent <a class="keyword" href="http://d.hatena.ne.jp/keyword/API">API</a>ýý</h4>
+<p>ýýýýýý¤ý¤ýýäýýäýýýHttpClientýýýrý<a class="keyword" href="http://d.hatena.ne.jp/keyword/API">API</a>ýäýýýý¤ý¤äýýýýýQuick Startýú$ä¤ýýýý¤õýýdýý¤ýýýýý<br><br>HttpClient Quick Start<br><a href="http://hc.apache.org/httpcomponents-client-4.3.x/quickstart.html" target="_blank">http://hc.apache.org/httpcomponents-client-4.3.x/quickstart.html</a><br><br>ýýýý´ýýýýû$ýýäýýýýäýýý</p>
+<pre class="syntax-highlight">
+Request.Get(<span class="synConstant">&quot;http://targethost/homepage&quot;</span>)
+    .execute().returnContent();
+Request.Post(<span class="synConstant">&quot;http://targethost/login&quot;</span>)
+    .bodyForm(Form.form().add(<span class="synConstant">&quot;username&quot;</span>,  <span class="synConstant">&quot;vip&quot;</span>).add(<span class="synConstant">&quot;password&quot;</span>,  <span class="synConstant">&quot;secret&quot;</span>).build())
+    .execute().returnContent();
+</pre>
+<br>
+<p>ýeýýýýý!ý<br><br>Fluent <a class="keyword" href="http://d.hatena.ne.jp/keyword/API">API</a><br><a href="http://hc.apache.org/httpcomponents-client-ga/tutorial/html/fluent.html" target="_blank">http://hc.apache.org/httpcomponents-client-ga/tutorial/html/fluent.html</a><br><br><a class="keyword" href="http://d.hatena.ne.jp/keyword/Javadoc">Javadoc</a><br><a href="https://hc.apache.org/httpcomponents-client-ga/fluent-hc/apidocs/" target="_blank">https://hc.apache.org/httpcomponents-client-ga/fluent-hc/apidocs/</a><br><br><a class="keyword" href="http://d.hatena.ne.jp/keyword/Maven">Maven</a>ýý¸ý7ýýáýýýýý´ýýýýä¤ý¤ýýý</p>
+<pre class="syntax-highlight">
+    <span class="synIdentifier">&lt;dependency&gt;</span>
+      <span class="synIdentifier">&lt;groupId&gt;</span>org.apache.httpcomponents<span class="synIdentifier">&lt;/groupId&gt;</span>
+      <span class="synIdentifier">&lt;artifactId&gt;</span>fluent-hc<span class="synIdentifier">&lt;/artifactId&gt;</span>
+      <span class="synIdentifier">&lt;version&gt;</span>4.3.1<span class="synIdentifier">&lt;/version&gt;</span>
+    <span class="synIdentifier">&lt;/dependency&gt;</span>
+</pre>
+
+<p>HttpClientý$ýý$¥ýýýý¥ýýeýýýý$ýlýääýýý<br><br>ýýýýå}ýýýýýý<br>src/main/<a class="keyword" href="http://d.hatena.ne.jp/keyword/java">java</a>/httpclient/example/FluentHttpClient.<a class="keyword" href="http://d.hatena.ne.jp/keyword/java">java</a></p>
+<pre class="syntax-highlight">
+<span class="synPreProc">package</span> httpclient.example;
+
+<span class="synPreProc">import</span> java.io.IOException;
+<span class="synPreProc">import</span> java.nio.charset.StandardCharsets;
+
+<span class="synPreProc">import</span> org.apache.http.entity.StringEntity;
+<span class="synPreProc">import</span> org.apache.http.client.fluent.Request;
+<span class="synPreProc">import</span> org.apache.http.client.fluent.Response;
+
+<span class="synType">public</span> <span class="synType">class</span> FluentHttpClient {
+    <span class="synType">public</span> <span class="synType">static</span> <span class="synType">void</span> main(String[] args) {
+        executeGet();
+        executePost();
+    }
+
+    <span class="synType">private</span> <span class="synType">static</span> <span class="synType">void</span> executeGet() {
+        System.out.println(<span class="synConstant">&quot;===== HTTP GET Start =====&quot;</span>);
+
+        Response response = <span class="synConstant">null</span>;
+        <span class="synStatement">try</span> {
+            response =
+                Request
+                .Get(<span class="synConstant">&quot;http://localhost:8080/get?param=value&quot;</span>)
+                .execute();
+
+            System.out.println(<span class="synStatement">new</span> String(response.returnContent().asBytes(),
+                                          StandardCharsets.UTF_8));
+
+            <span class="synComment">// ýý­</span>
+            <span class="synComment">// org.apache.http.HttpResonseýýýýýýýýýäáýResponse#returnResponseýý¤ý$ýý$$</span>
+        } <span class="synStatement">catch</span> (IOException e) {
+            e.printStackTrace();
+        } <span class="synStatement">finally</span> {
+            <span class="synStatement">if</span> (response != <span class="synConstant">null</span>) {
+                response.discardContent();
+            }
+        }
+
+        System.out.println(<span class="synConstant">&quot;===== HTTP GET End =====&quot;</span>);
+    }
+
+    <span class="synType">private</span> <span class="synType">static</span> <span class="synType">void</span> executePost() {
+        System.out.println(<span class="synConstant">&quot;===== HTTP POST Start =====&quot;</span>);
+
+        StringBuilder builder = <span class="synStatement">new</span> StringBuilder();
+        builder.append(<span class="synConstant">&quot;POST Body&quot;</span>);
+        builder.append(<span class="synConstant">&quot;</span><span class="synSpecial">\r\n</span><span class="synConstant">&quot;</span>);
+        builder.append(<span class="synConstant">&quot;Http Server!!&quot;</span>);
+        builder.append(<span class="synConstant">&quot;</span><span class="synSpecial">\r\n</span><span class="synConstant">&quot;</span>);
+
+        Response response = <span class="synConstant">null</span>;
+        <span class="synStatement">try</span> {
+            response =
+                Request
+                .Post(<span class="synConstant">&quot;http://localhost:8080/post&quot;</span>)
+                .body(<span class="synStatement">new</span> StringEntity(builder.toString(),
+                                       (StandardCharsets.UTF_8)))
+                .execute();
+
+            System.out.println(<span class="synStatement">new</span> String(response.returnContent().asBytes(),
+                                          StandardCharsets.UTF_8));
+
+            <span class="synComment">// ýý­</span>
+            <span class="synComment">// org.apache.http.HttpResonseýýýýýýýýýäáýResponse#returnResponseýý¤ý$ýý$$</span>
+        } <span class="synStatement">catch</span> (IOException e) {
+            e.printStackTrace();
+        } <span class="synStatement">finally</span> {
+            <span class="synStatement">if</span> (response != <span class="synConstant">null</span>) {
+                response.discardContent();
+            }
+        }
+
+        System.out.println(<span class="synConstant">&quot;===== HTTP POST End =====&quot;</span>);
+    }
+}
+</pre>
+<br>
+<p>ýýýdýýoýyýáýRequestýýResponseýýýý¤ý¤áýRequestýýýýDSLýädýHTTPýoýýýýý$ý¹$ýý¤ýýýýýýýýäýResponseýýýyýýreturnContentýýýýdýý?ýýý<a class="keyword" href="http://d.hatena.ne.jp/keyword/HTTP%A5%B9%A5%C6%A1%BC%A5%BF%A5%B9%A5%B3%A1%BC%A5%C9">HTTPýýý¡ýýýýýýýýýýý</a>ýý=ýýû$ä¤ýý¤ýýR!ýýýýHttpClientýýýýý±ýdý=ýýý$ýýýýáýResponse#returnResponseýýHttpResponseýýýýýýýäýýý¤áýýýýýýýýý=ý9ýý$$ýäýý&ýý<br><br>ý¤ýýýHttpClientýýýýäýCloseableHttpResponseýä¤ä¤ýý¤ýýýýýý!ý<br><br>ýýý¼ýýýRáý<a class="keyword" href="http://d.hatena.ne.jp/keyword/JAX%2DRS">JAX-RS</a>ýýýdýýýý$äýýýä;ýý¤6ýýýýýýý¤ýýý<br></p>
+			<h4> <a class="keyword" href="http://d.hatena.ne.jp/keyword/JAX%2DRS">JAX-RS</a> Client</h4>
+<p><a class="keyword" href="http://d.hatena.ne.jp/keyword/JAX%2DRS">JAX-RS</a> 2.0ýýýýäýäýýý<a class="keyword" href="http://d.hatena.ne.jp/keyword/JAX%2DRS">JAX-RS</a>ýýClient <a class="keyword" href="http://d.hatena.ne.jp/keyword/API">API</a>ýäýýý<br><br><a class="keyword" href="http://d.hatena.ne.jp/keyword/JAX%2DRS">JAX-RS</a>ý¼ýýýýäáýRESTEasyýýýýdýý¤ýýýýýý/>ýýý¢äbJerseyýää¤ýýý<br><br>RESTEasy<br><a href="http://www.jboss.org/resteasy" target="_blank">http://www.jboss.org/resteasy</a><br><br>JBoss Projectsýýýý¤¤$$äýýaý<a class="keyword" href="http://d.hatena.ne.jp/keyword/Maven">Maven</a>ýýýýýýýý¤áýý¤ý<a class="keyword" href="http://d.hatena.ne.jp/keyword/%A5%EA%A5%DD%A5%B8%A5%C8%A5%EA">ýýeýý%ý</a>ýýýräý$ýý¤ýýý</p>
+<pre class="syntax-highlight">
+    <span class="synIdentifier">&lt;repository&gt;</span>
+      <span class="synIdentifier">&lt;id&gt;</span>jboss-public-repository<span class="synIdentifier">&lt;/id&gt;</span>
+      <span class="synIdentifier">&lt;name&gt;</span>JBoss Public Repository Group<span class="synIdentifier">&lt;/name&gt;</span>
+      <span class="synIdentifier">&lt;url&gt;</span>http://repository.jboss.org/nexus/content/groups/public-jboss<span class="synIdentifier">&lt;/url&gt;</span>
+    <span class="synIdentifier">&lt;/repository&gt;</span>
+</pre>
+
+<p>ýýý!ýýý¸ý7ýýý</p>
+<pre class="syntax-highlight">
+    <span class="synIdentifier">&lt;dependency&gt;</span>
+      <span class="synIdentifier">&lt;groupId&gt;</span>org.jboss.resteasy<span class="synIdentifier">&lt;/groupId&gt;</span>
+      <span class="synIdentifier">&lt;artifactId&gt;</span>resteasy-jaxrs<span class="synIdentifier">&lt;/artifactId&gt;</span>
+      <span class="synIdentifier">&lt;version&gt;</span>3.0.4.Final<span class="synIdentifier">&lt;/version&gt;</span>
+    <span class="synIdentifier">&lt;/dependency&gt;</span>
+
+    <span class="synIdentifier">&lt;dependency&gt;</span>
+      <span class="synIdentifier">&lt;groupId&gt;</span>org.jboss.resteasy<span class="synIdentifier">&lt;/groupId&gt;</span>
+      <span class="synIdentifier">&lt;artifactId&gt;</span>resteasy-client<span class="synIdentifier">&lt;/artifactId&gt;</span>
+      <span class="synIdentifier">&lt;version&gt;</span>3.0.4.Final<span class="synIdentifier">&lt;/version&gt;</span>
+    <span class="synIdentifier">&lt;/dependency&gt;</span>
+</pre>
+
+<p>ýýý¤äáýClient <a class="keyword" href="http://d.hatena.ne.jp/keyword/API">API</a>ýý°ýýýýýýýýý¤bý$ý<a class="keyword" href="http://d.hatena.ne.jp/keyword/%A5%EA%A5%DD%A5%B8%A5%C8%A5%EA">ýýeýý%ý</a>ýýýrää¤ýý¤ýýýýýäýýýý¤¤äýýýý!ý<br><br>ýýýýåsýýýaý<br>src/main/<a class="keyword" href="http://d.hatena.ne.jp/keyword/java">java</a>/httpclient/example/JaxrsHttpClient.<a class="keyword" href="http://d.hatena.ne.jp/keyword/java">java</a></p>
+<pre class="syntax-highlight">
+<span class="synPreProc">package</span> httpclient.example;
+
+<span class="synPreProc">import</span> javax.ws.rs.client.Client;
+<span class="synPreProc">import</span> javax.ws.rs.client.ClientBuilder;
+<span class="synPreProc">import</span> javax.ws.rs.client.Entity;
+<span class="synPreProc">import</span> javax.ws.rs.core.Response;
+
+<span class="synType">public</span> <span class="synType">class</span> JaxrsHttpClient {
+    <span class="synType">public</span> <span class="synType">static</span> <span class="synType">void</span> main(String[] args) {
+        executeGet();
+        executePost();
+    }
+
+    <span class="synType">private</span> <span class="synType">static</span> <span class="synType">void</span> executeGet() {
+        System.out.println(<span class="synConstant">&quot;===== HTTP GET Start =====&quot;</span>);
+
+        Client client = ClientBuilder.newBuilder().build();
+        <span class="synStatement">try</span> {
+            Response response =
+                client
+                .target(<span class="synConstant">&quot;http://localhost:8080/get?param=value&quot;</span>)
+                .request()
+                .get();
+
+            <span class="synStatement">if</span> (response.getStatus() == Response.Status.OK.getStatusCode()) {
+                System.out.println(response.readEntity(String.<span class="synType">class</span>));
+            }
+
+            response.close();
+        } <span class="synStatement">finally</span> {
+            client.close();
+        }
+
+        System.out.println(<span class="synConstant">&quot;===== HTTP GET End =====&quot;</span>);
+    }
+
+    <span class="synType">private</span> <span class="synType">static</span> <span class="synType">void</span> executePost() {
+        System.out.println(<span class="synConstant">&quot;===== HTTP POST Start =====&quot;</span>);
+
+        StringBuilder builder = <span class="synStatement">new</span> StringBuilder();
+        builder.append(<span class="synConstant">&quot;POST Body&quot;</span>);
+        builder.append(<span class="synConstant">&quot;</span><span class="synSpecial">\r\n</span><span class="synConstant">&quot;</span>);
+        builder.append(<span class="synConstant">&quot;Http Server!!&quot;</span>);
+        builder.append(<span class="synConstant">&quot;</span><span class="synSpecial">\r\n</span><span class="synConstant">&quot;</span>);
+
+        Client client = ClientBuilder.newBuilder().build();
+        <span class="synStatement">try</span> {
+            Response response =
+                client
+                .target(<span class="synConstant">&quot;http://localhost:8080/post&quot;</span>)
+                .request()
+                .post(Entity.text(builder.toString()));
+
+            <span class="synStatement">if</span> (response.getStatus() == Response.Status.OK.getStatusCode()) {
+                System.out.println(response.readEntity(String.<span class="synType">class</span>));
+            }
+
+            response.close();
+        } <span class="synStatement">finally</span> {
+            client.close();
+        }
+
+        System.out.println(<span class="synConstant">&quot;===== HTTP POST End =====&quot;</span>);
+    }
+}
+</pre>
+
+<p>ClientBuilderýýýýClientýýýýýýýýýýýý$ýDSLýädýýoýýýýý$ýý$ý©ý¤¤ýýýý¤ýýýýøýýHTTPý³¼ý}ýådýý1ýýýýý}ýåaýýýýýýSyncInvokerýýýWáýýeýýýýýýäý¤ý$ýýýý$áýý¹$ýý¤ýýý<br><br>ýýýýdýResponseýýýyýý<a class="keyword" href="http://d.hatena.ne.jp/keyword/%A5%A4%A5%F3%A5%B9%A5%BF%A5%F3%A5%B9">ýýýWeýýý</a>ý$ýý¼ýýýýäýýý¤áýýýýýýýýýyýeWdýýýý¤ýýýýýýýýýOKýäýýý<br><br>ý$ýýýáýýdýýýýýClientýýCloseableýýýýýýýý¤ýý¤ýý¤äýý&ýýýý<br><br>ý$¤ýýýýýñýäýýýýýýýýý´ýýýýáýýýý$ýýýý$ýýeýjý¥ýýdýýýý%dý¥ýýý$ýýýý;ääýý¤äýýýýý9ýýý¤=ýýý¤¤äýý¤ýýýý!ý<br><br>ýýý¤äáýýýýýHTTPýoýýýýý$ýýýýý¤ýýýýýýýý$áýý¤ýGroovyýýR$¤ýý¤ýýý<a class="keyword" href="http://d.hatena.ne.jp/keyword/JDK">JDK</a>ýýýý°ý¤ý¤ý$äýýý6ý°åýýýý$äýýý<br>LightHttpd.groovy</p>
+<pre class="syntax-highlight">
+<span class="synPreProc">import</span> java.io.<span class="synStatement">IOException</span>
+<span class="synPreProc">import</span> java.net.InetSocketAddress
+
+<span class="synPreProc">import</span> com.sun.net.httpserver.HttpExchange
+<span class="synPreProc">import</span> com.sun.net.httpserver.HttpHandler
+<span class="synPreProc">import</span> com.sun.net.httpserver.HttpServer
+
+<span class="synType">class</span> SimpleHttpHandler <span class="synType">implements</span> HttpHandler {
+    @Override
+    <span class="synType">public</span> <span class="synType">void</span> handle(HttpExchange exchange) <span class="synType">throws</span> <span class="synStatement">IOException</span> {
+        <span class="synStatement">try</span> {
+            <span class="synSpecial">def</span> builder = <span class="synStatement">new</span> StringBuilder()
+            builder <span class="synStatement">&lt;&lt;</span> <span class="synConstant">&quot;Accessed URL = </span><span class="synIdentifier">${exchange.requestURI}</span><span class="synConstant">&quot;</span> <span class="synStatement">&lt;&lt;</span> <span class="synConstant">&quot;</span><span class="synSpecial">\r\n</span><span class="synConstant">&quot;</span>
+            builder <span class="synStatement">&lt;&lt;</span> <span class="synConstant">&quot;Accessed Method = </span><span class="synIdentifier">${exchange.requestMethod}</span><span class="synConstant">&quot;</span> <span class="synStatement">&lt;&lt;</span> <span class="synConstant">&quot;</span><span class="synSpecial">\r\n</span><span class="synConstant">&quot;</span>
+            builder <span class="synStatement">&lt;&lt;</span> <span class="synConstant">&quot;Accessed Date = </span><span class="synIdentifier">${new Date()}</span><span class="synConstant">&quot;</span> <span class="synStatement">&lt;&lt;</span> <span class="synConstant">&quot;</span><span class="synSpecial">\r\n</span><span class="synConstant">&quot;</span>
+
+            <span class="synStatement">switch</span> (exchange.requestMethod) {
+                <span class="synStatement">case</span> <span class="synConstant">&quot;GET&quot;</span>:
+                    <span class="synStatement">break</span>
+                <span class="synStatement">case</span> <span class="synConstant">&quot;POST&quot;</span>:
+                    builder <span class="synStatement">&lt;&lt;</span> <span class="synConstant">&quot;Request Body&lt;&lt;&quot;</span> <span class="synStatement">&lt;&lt;</span> <span class="synConstant">&quot;</span><span class="synSpecial">\r\n</span><span class="synConstant">&quot;</span>
+                    builder <span class="synStatement">&lt;&lt;</span> exchange.requestBody.<span class="synIdentifier">getText</span>(<span class="synConstant">&quot;UTF-8&quot;</span>)
+                    builder <span class="synStatement">&lt;&lt;</span> <span class="synConstant">&quot;&gt;&gt;&quot;</span> <span class="synStatement">&lt;&lt;</span> <span class="synConstant">&quot;</span><span class="synSpecial">\r\n</span><span class="synConstant">&quot;</span>
+            }
+
+            <span class="synSpecial">def</span> bytes = builder.toString().getBytes(<span class="synConstant">&quot;UTF-8&quot;</span>)
+            exchange.sendResponseHeaders(<span class="synConstant">200</span>, bytes.length)
+            exchange.responseBody.<span class="synIdentifier">withStream</span> { it.<span class="synIdentifier">write</span>(bytes) }
+        } <span class="synStatement">catch</span> (e) {
+            e.printStackTrace()
+
+            <span class="synSpecial">def</span> message = <span class="synConstant">&quot;Server Error = </span><span class="synIdentifier">${e}</span><span class="synConstant">&quot;</span>
+            <span class="synSpecial">def</span> bytes = message.getBytes(<span class="synConstant">&quot;UTF-8&quot;</span>)
+            exchange.sendResponseHeaders(<span class="synConstant">500</span>, bytes.length)
+            exchange.responseBody.<span class="synIdentifier">withStream</span> { it.<span class="synIdentifier">write</span>(bytes) }
+        }
+    }
+}
+
+server = HttpServer.create(<span class="synStatement">new</span> InetSocketAddress(<span class="synConstant">8080</span>), <span class="synConstant">0</span>)
+server.createContext(<span class="synConstant">&quot;/&quot;</span>, <span class="synStatement">new</span> SimpleHttpHandler())
+server.start()
+
+<span class="synIdentifier">println</span>(<span class="synConstant">&quot;LightHttpd Startup. </span><span class="synIdentifier">${new Date()}</span><span class="synConstant">&quot;</span>)
+</pre>
+
+			<p class="sectionfooter"><a href="/Kazuhira/20131026/1382796711">Permalink</a> | <a href="/Kazuhira/20131026/1382796711#c">ýýýýýý(0)</a> | <a href="/Kazuhira/20131026/1382796711#tb">ý%ýåýý%åý(1)</a> | 23:11 <a href="http://b.hatena.ne.jp/entry/http://d.hatena.ne.jp/Kazuhira/20131026/1382796711" class="bookmark-icon"><img src="http://d.hatena.ne.jp/images/b_entry_wh.gif" border="0" title="JavaýäýHttpClientýýýýåýý¤ý¥åýý¡ýýý" alt="JavaýäýHttpClientýýýýåýý¤ý¥åýý¡ýýý" width="16" height="12" class="icon"></a> <a href="http://b.hatena.ne.jp/entry/http://d.hatena.ne.jp/Kazuhira/20131026/1382796711" class="bookmark-count"><img src="http://b.hatena.ne.jp/entry/image/http://d.hatena.ne.jp/Kazuhira/20131026/1382796711" title="ýä¤¥¥åýý¡ýýý - JavaýäýHttpClientýýýýåý" alt=""></a></p>
+
+		</div>
+
+<div id="google_afc_user_1" class="section google_afc_user">
+</div>
+<script>
+  var hatenadfp = hatenadfp || {};
+  hatenadfp.adUnits = hatenadfp.adUnits || [];
+  hatenadfp.adUnits.push(
+    { unitName: 'diary_user', size: [[300, 250], [336, 280]], divId: 'google_afc_user_1', allowContentMatch: true }
+  );
+  hatenadfp.isNGContent = false;
+</script>
+
+<!-- google_ad_section_end -->
+<!-- rakuten_ad_target_end -->
+
+
+</div>
+
+<form id="comment-form" method="post" action="/Kazuhira/comment#c" class="comment">
+<input type="hidden" name="mode" value="enter">
+<input type="hidden" name="rkm" value="">
+<input type="hidden" name="date" value="2013-10-26">
+<div class="comment">
+  <div class="caption"><a name="c">ýýýýý$ýý</a></div>
+  <div class="commentshort">
+    
+    
+
+    <a name="error-message"></a>
+    <p class="message" style="display:none"></p>
+
+    
+
+    
+            
+    <p class="commentform">
+      <span class="commentator">
+        <span class="usermailconfirm"><input name="usermail" size="1" value=""><input name="userurl" size="1" value="">ýýýeýý:ýý¤ýýý¥ýýáýýäýýýý7ýýýýý¤¿ýýýýýäýý¤ýýäýýýýýýý<br></span>
+        <span class="username">
+        <img src="http://www.hatena.ne.jp/images/guest_icon.gif" class="hatena-id-icon" alt="ýýýýýý" title="ýýýýýý" height="16" width="16">
+        <input type="hidden" name="section" value="1382796711">
+        
+          <input id="comment-username" name="username" size="15">
+        
+        </span>
+        
+          <span class="usermail"><img src="/images/icon-usermail.gif" style="vertical-align:middle;margin-right:3px;"><input id="comment-usermail" name="useremail" size="15" value=""></span>
+          <span class="userurl"><img src="/images/icon-userurl.gif" style="vertical-align:middle;margin-right:3px;"><input id="comment-userurl" name="useruri" size="15" value=""></span>
+        
+      </span>
+<br>
+      <!-- NOT_VERIFIED_COMMENT_AUTH -->
+      <textarea id="comment-textarea" name="body" value="" cols="60" rows="3"></textarea><br>
+      
+          <div class="captcha">
+            <img src="/Kazuhira/captcha?1519054704" class="captcha-image">
+            <span class="captcha-message">ýýýýçýý</span><br />
+            <input type="text" name="captcha_code" size="10" class="captcha-string" id="comment-captcha">
+          </div>
+      
+      <span class="comment-submit"><input type="submit" id="comment-form-button" value="ýýý"></span>
+    </p>
+
+      <script type="text/javascript" src="/js/diary_comment_edit_form.js"></script>
+    
+
+  </div>
+</div>
+
+</form>
+
+
+
+
+
+  
+  <div class="refererlist">
+    <div class="caption">
+      <a name="tb">ý%ýåýý%åý</a> - http://d.hatena.ne.jp/Kazuhira/20131026/1382796711
+    </div>
+    
+      
+      <ul>
+        
+          <li>
+            <a href="http://d.hatena.ne.jp/Kazuhira/20141115/1416054916" title=" JavaýäýHttpClientýýýýåý ýýýý2 ýýýýýý¥ýýý%ý¡ý³ýýjý¤ý$äýýýJavaýäýHttpClientýýýýåýhttp://d.hatena.ne.jp/Kazuhira/20131026/1382796711ýýýýýR$ýýýáýýýýýý$ýýýýä¤ýHTTPýýýdýýýý%dý¥ýý¢ä¤äýýýý¤äýýýýýýýýä?ýýý¤ýý¤¤ýýäý" rel="nofollow">Starlight - JavaýäýHttpClientýýýýåý ýýýý2</a></li>
+        
+      </ul>
+    
+  </div>
+  
+  
+  
+  <div id="diary-pc-trackback-rectangle" style="margin-bottom: 15px;"></div>
+  <script>
+    var hatenadfp = hatenadfp || {};
+    hatenadfp.adUnits = hatenadfp.adUnits || [];
+    
+    hatenadfp.adUnits.push({ unitName: 'diary_user_track', size: [[300,250],[336,280]], divId: 'diary-pc-trackback-rectangle' });
+    
+    hatenadfp.isNGContent = false;
+  </script>
+  <script type="text/javascript" charset="UTF-8" src="//b.hatena.ne.jp/js/hatena_dfp2.js"></script>
+  
+
+
+
+
+
+    <div class="refererlist">
+      <div class="caption">ýýVøý</div>
+      <ul>
+          <li>32 <a href="https://www.google.co.jp/" rel="nofollow">https://www.google.co.jp/</a></li>
+          <li>30 <a href="https://www.google.co.jp/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=2&amp;ved=0CDQQFjAB&amp;url=http%3A%2F%2Fd.hatena.ne.jp%2FKazuhira%2F20130612%2F1371041423&amp;ei=b89rUrHpFuaQigew_oDIAg&amp;usg=AFQjCNHoZebwLR-DDhKjumfWNdLYpvLbVw&amp;sig2=dpnbjuqIKQckrisJP_QxAg" rel="nofollow">https://www.google.co.jp/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=2&amp;ved=0CDQQFjAB&amp;url=http://d.hatena.ne.jp/Kazuhira/20130612/1371041423&amp;ei=b89rUrHpFuaQigew_oDIAg&amp;usg=AFQjCNHoZebwLR-DDhKjumfWNdLYpvLbVw&amp;sig2=dpnbjuqIKQckrisJP_QxAg</a></li>
+          <li>12 <a href="http://www.google.co.jp/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;ved=0CCkQFjAA&amp;url=http%3A%2F%2Fd.hatena.ne.jp%2FKazuhira%2F20130911%2F1378914422&amp;ei=x85rUt2_FuaQigKQx4HIAg&amp;usg=AFQjCNE68ebhXjLjzp3HG95mb8fTw5SVpA&amp;bvm=bv.55123115,d.cGE" rel="nofollow">http://www.google.co.jp/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;ved=0CCkQFjAA&amp;url=http://d.hatena.ne.jp/Kazuhira/20130911/1378914422&amp;ei=x85rUt2_FuaQigKQx4HIAg&amp;usg=AFQjCNE68ebhXjLjzp3HG95mb8fTw5SVpA&amp;bvm=bv.55123115,d.cGE</a></li>
+          <li>6 <a href="http://pipes.yahoo.com/pipes/pipe.info?_id=3572f9da2c8db3951cc02c59f68f43ba" rel="nofollow">http://pipes.yahoo.com/pipes/pipe.info?_id=3572f9da2c8db3951cc02c59f68f43ba</a></li>
+          <li>4 <a href="http://radi0ant.hatenablog.com/entry/2012/05/04/035243" rel="nofollow">http://radi0ant.hatenablog.com/entry/2012/05/04/035243</a></li>
+          <li>4 <a href="http://www.google.co.jp/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;frm=1&amp;source=web&amp;cd=7&amp;ved=0CFEQFjAG&amp;url=http%3A%2F%2Fd.hatena.ne.jp%2FKazuhira%2F20110710%2F1310292032&amp;ei=PtRrUrDcGIjTigKNsoDwBQ&amp;usg=AFQjCNHNeY75H6J443rJEo5C3kEXrRPLFA" rel="nofollow">http://www.google.co.jp/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;frm=1&amp;source=web&amp;cd=7&amp;ved=0CFEQFjAG&amp;url=http://d.hatena.ne.jp/Kazuhira/20110710/1310292032&amp;ei=PtRrUrDcGIjTigKNsoDwBQ&amp;usg=AFQjCNHNeY75H6J443rJEo5C3kEXrRPLFA</a></li>
+          <li>4 <a href="http://www.google.co.jp/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=21&amp;ved=0CCgQFjAAOBQ&amp;url=http%3A%2F%2Fd.hatena.ne.jp%2FKazuhira%2F20131004%2F1380902669&amp;ei=hNFrUq_ON8SciAeHyIHgAw&amp;usg=AFQjCNHAFd7lBhKsNFH8HMPy_-a8ExeJpA&amp;bvm=bv.55123115,d.aGc&amp;cad=rjt" rel="nofollow">http://www.google.co.jp/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=21&amp;ved=0CCgQFjAAOBQ&amp;url=http://d.hatena.ne.jp/Kazuhira/20131004/1380902669&amp;ei=hNFrUq_ON8SciAeHyIHgAw&amp;usg=AFQjCNHAFd7lBhKsNFH8HMPy_-a8ExeJpA&amp;bvm=bv.55123115,d.aGc&amp;cad=rjt</a></li>
+          <li>3 <a href="http://cloud.feedly.com/" rel="nofollow">http://cloud.feedly.com/</a></li>
+          <li>3 <a href="http://preview.getprismatic.com/news/home" rel="nofollow">http://preview.getprismatic.com/news/home</a></li>
+          <li>3 <a href="http://www.google.co.jp/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=3&amp;cad=rja&amp;ved=0CDsQFjAC&amp;url=http%3A%2F%2Fd.hatena.ne.jp%2FKazuhira%2F20131026%2F1382796711&amp;ei=r_9rUu6tO-aKiQfdh4HYDA&amp;usg=AFQjCNH4Zin4EPWjd3Acf0lIqpvWuSdLSQ&amp;bvm=bv.55123115,d.aGc" rel="nofollow">http://www.google.co.jp/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=3&amp;cad=rja&amp;ved=0CDsQFjAC&amp;url=http://d.hatena.ne.jp/Kazuhira/20131026/1382796711&amp;ei=r_9rUu6tO-aKiQfdh4HYDA&amp;usg=AFQjCNH4Zin4EPWjd3Acf0lIqpvWuSdLSQ&amp;bvm=bv.55123115,d.aGc</a></li>
+      </ul>
+      
+    </div>
+
+
+
+
+</div>
+
+
+
+</div>
+<div class="calendar" id="pager-bottom">
+  <a rel="prev" href="/Kazuhira/20131022/1382455739" class="prev">&lt;[Java][Byteman]ý%ýý%ýýýýýýý...</a>&nbsp;<span class="delimiter">|</span>&nbsp;<a rel="next" href="/Kazuhira/20131027/1382867045" class="next">[Hazelcast]HazelcastýýContinuo...&gt;</a>
+</div>
+</div>
+<div class="sidebar">
+	<div class="hatena-module hatena-module-profile">
+  <div class="hatena-moduletitle">ýåýeýýýýý</div>
+  <div class="hatena-modulebody">
+    <div class="hatena-profile">
+      <p class="hatena-profile-image"><a href="/Kazuhira/about"><img src="http://www.st-hatena.com/users/Ka/Kazuhira/user_p.gif" alt="Kazuhira" /></a></p>
+      <p class="hatena-profile-id"><a href="/Kazuhira/about">Kazuhira</a></p>
+      <p class="hatena-profile-body">Sunday Programmerýýs Diaryýý</p>
+    </div>
+  </div>
+</div>
+
+	<!-- -->
+	<a target="_blank" href="https://twitter.com/kazuhira_r">Twitter</a><br>
+	<div class="hatena-module hatena-module-calendar2">
+<div class="hatena-moduletitle">ýýýýýýýý</div>
+<div class="hatena-modulebody">
+<table class="calendar" summary="calendar">
+<tr>
+<td class="calendar-prev-month" colspan="2"><a href="/Kazuhira/201309" title="201309" rel="nofollow">&lt;&lt;</a></td>
+<td class="calendar-current-month" colspan="3"><a href="/Kazuhira/archive/201310" rel="nofollow">2013/10</a></td>
+<td class="calendar-next-month" colspan="2"><a href="/Kazuhira/201311" title="201311" rel="nofollow">&gt;&gt;</a></td>
+</tr>
+<tr>
+<td class="calendar-sunday">ýý</td>
+<td class="calendar-weekday">ýý</td>
+<td class="calendar-weekday">ýý</td>
+<td class="calendar-weekday">ýý</td>
+<td class="calendar-weekday">ýý</td>
+<td class="calendar-weekday">ýý</td>
+<td class="calendar-saturday">ýý</td>
+</tr>
+	<tr>
+		<td class="calendar-day"></td>
+		<td class="calendar-day"></td>
+		<td class="calendar-day"><a href="/Kazuhira/20131001" title="1">1</a></td>
+		<td class="calendar-day">2</td>
+		<td class="calendar-day">3</td>
+		<td class="calendar-day"><a href="/Kazuhira/20131004" title="4">4</a></td>
+		<td class="calendar-day"><a href="/Kazuhira/20131005" title="5">5</a></td>
+	</tr>
+	<tr>
+		<td class="calendar-day">6</td>
+		<td class="calendar-day">7</td>
+		<td class="calendar-day">8</td>
+		<td class="calendar-day">9</td>
+		<td class="calendar-day">10</td>
+		<td class="calendar-day"><a href="/Kazuhira/20131011" title="11">11</a></td>
+		<td class="calendar-day"><a href="/Kazuhira/20131012" title="12">12</a></td>
+	</tr>
+	<tr>
+		<td class="calendar-day"><a href="/Kazuhira/20131013" title="13">13</a></td>
+		<td class="calendar-day">14</td>
+		<td class="calendar-day"><a href="/Kazuhira/20131015" title="15">15</a></td>
+		<td class="calendar-day">16</td>
+		<td class="calendar-day"><a href="/Kazuhira/20131017" title="17">17</a></td>
+		<td class="calendar-day">18</td>
+		<td class="calendar-day">19</td>
+	</tr>
+	<tr>
+		<td class="calendar-day"><a href="/Kazuhira/20131020" title="20">20</a></td>
+		<td class="calendar-day">21</td>
+		<td class="calendar-day"><a href="/Kazuhira/20131022" title="22">22</a></td>
+		<td class="calendar-day">23</td>
+		<td class="calendar-day">24</td>
+		<td class="calendar-day">25</td>
+		<td class="calendar-day day-selected"><a href="/Kazuhira/20131026" title="26">26</a></td>
+	</tr>
+	<tr>
+		<td class="calendar-day"><a href="/Kazuhira/20131027" title="27">27</a></td>
+		<td class="calendar-day">28</td>
+		<td class="calendar-day">29</td>
+		<td class="calendar-day"><a href="/Kazuhira/20131030" title="30">30</a></td>
+		<td class="calendar-day">31</td>
+		<td class="calendar-day"></td>
+		<td class="calendar-day"></td>
+	</tr>
+</table>
+	</div>
+</div>
+
+	<div class="hatena-module hatena-module-section">
+<div class="hatena-moduletitle"><a href="/Kazuhira/archive">ýÿýýýýýý%ý</a></div>
+<div class="hatena-modulebody">
+<ul class="hatena-section">
+<li><a href="http://d.hatena.ne.jp/Kazuhira/20180218/1518928528">[Jetty]JettyýýLocalConnectorýýHttpTesterýýServletTesterýáýWebýýýåqýýýýýýýý°ýýýçýSdý</a></li>
+<li><a href="http://d.hatena.ne.jp/Kazuhira/20180217/1518864430">[Jetty]ý$ùýýýJettyýýwý$ý</a></li>
+<li><a href="http://d.hatena.ne.jp/Kazuhira/20180212/1518447476">[Node.js][JavaScript]Node.jsýýýåqýýýýýýýF¼¹2ýýýeýýýýýä¤$ýýnexeýý9</a></li>
+<li><a href="http://d.hatena.ne.jp/Kazuhira/20180212/1518433536">[Node.js][JavaScript]Node.jsýýýåqýýýýýýýýGoogle ChromeýýDevToolsýåå%åýýýýý</a></li>
+<li><a href="http://d.hatena.ne.jp/Kazuhira/20180212/1518428304">[Node.js][JavaScript]JavaScriptýýNode.jsýåýýWáýýåýýýýtýýƒäýýýý$ýýäýýbiconv-liteýý9</a></li>
+<li><a href="http://d.hatena.ne.jp/Kazuhira/20180211/1518364001">[Emacs]EmacsýåýýWe!ýý7ýýýeåýýýýýýýýýåýýååáýý$ýýý</a></li>
+<li><a href="http://d.hatena.ne.jp/Kazuhira/20180211/1518362419">[Node.js][JavaScript]Node.jsý¥e|ýý|ýýýýExpressýý$äýRESTýýýýý!ýýýR$¤äý</a></li>
+<li><a href="http://d.hatena.ne.jp/Kazuhira/20180211/1518343200">[Reactor][Kafka]Reactor Kafkaýýwýý</a></li>
+<li><a href="http://d.hatena.ne.jp/Kazuhira/20180208/1518104917">[Hazelcast]HazelcastýýEntry Processorýýýýýý</a></li>
+<li><a href="http://d.hatena.ne.jp/Kazuhira/20180201/1517497871">[Node.js]Node.jsýáýJSONýýPOSTýýýýHttpClientýýýýýýýýHttpServerýýR$¤äý</a></li>
+</ul>
+</div>
+</div>
+
+	<div class="hatena-module hatena-module-comment">
+<div class="hatena-moduletitle">ýöý¥ýýýýý</div>
+<div class="hatena-modulebody">
+<ul class="hatena-recentcomment">
+<li><a href="/Kazuhira/20180103/1514986183#c">2018-01-03</a>&nbsp;Kazuhira</li>
+<li><a href="/Kazuhira/20180103/1514986183#c">2018-01-03</a>&nbsp;ýýýýýý</li>
+<li><a href="/Kazuhira/20140628/1403961778#c">2014-06-28</a>&nbsp;ýýýýýý</li>
+<li><a href="/Kazuhira/20170728/1501255394#c">2017-07-28</a>&nbsp;Kazuhira</li>
+<li><a href="/Kazuhira/20170728/1501255394#c">2017-07-28</a>&nbsp;xuwei</li>
+</ul>
+</div>
+</div>
+
+	<div class="hatena-module hatena-module-trackback">
+<div class="hatena-moduletitle">ýöý¥%ýåýý%åý</div>
+<div class="hatena-modulebody">
+<ul class="hatena-recentcomment">
+<li><a href="/Kazuhira/20150519/1432044528#tb">2015-05-19</a>&nbsp;<a href="http://d.hatena.ne.jp/tokobayashi/20171003">tokobayashiýýýýýý - CDIýýúÿ</a></li>
+<li><a href="/Kazuhira/20130420/1366452495#tb">2013-04-20</a>&nbsp;<a href="https://search.ukr.net/?q=cassandra+keyspace+strategy_options&cr=country&lr=&as_qdr=&filter=&sitesearch=&safe=&related=&as_rq=&start=10&"></a></li>
+<li><a href="/Kazuhira/20140321/1395412003#tb">2014-03-21</a>&nbsp;<a href="http://d.hatena.ne.jp/megascus/20161202/1480636922">ýý¤S$& - ýdýýýýýýýýdýýý¤¤ýýýýyýýýýSdý</a></li>
+<li><a href="/Kazuhira/20120304/1330872618#tb">2012-03-04</a>&nbsp;<a href="http://www.search.ask.com/web?q=setoption+netty&page=2"></a></li>
+<li><a href="/Kazuhira/20130526/1369562720#tb">2013-05-26</a>&nbsp;<a href="https://search.ukr.net/?q=cassandra+java+binary+protocol&cr=country&lr=&as_qdr=&filter=&sitesearch=&safe=&related=&as_rq=&start=10&"></a></li>
+</ul>
+</div>
+</div>
+
+	<div class="hatena-module hatena-module-searchform">
+<div class="hatena-moduletitle">ýýýýý¸ýýý</div>
+<div class="hatena-modulebody">
+<form method="GET" action="/Kazuhira/searchdiary" class="hatena-searchform"><input type="text" name="word" class="hatena-searchform searchform-word" value=""><input type="submit" name=".submit" value="ýýýý" class="hatena-searchform searchform-button"><br><label class="searchform-label-detail"><input type="radio" name="type" value="detail" checked="checked" class="searchform-radio">ý:ý</label> <label class="searchform-label-list"><input type="radio" name="type" value="list" class="searchform-radio">ýýýý</label></form>
+
+</div>
+</div>
+
+	<a href="http://b.hatena.ne.jp/entrylist?url=http://d.hatena.ne.jp/Kazuhira/"><img src="http://b.hatena.ne.jp/bc/wh/http://d.hatena.ne.jp/Kazuhira/" class="bcounter" alt="ýýýýýýýýý¤ä¤¥¥åýý¡ýýýýý" title="ýýýýýýýýý¤ä¤¥¥åýý¡ýýýýý"></a>
+
+        <a href="https://twitter.com/kazuhira_r" data-widget-id="323447608171429890" class="twitter-follow-button" data-show-count="false">Follow @kazuhira_r</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	<!-- -->
+	<!-- -->
+</div>
+</div>
+
+
+
+
+  <script type="text/javascript" src="http://b.hatena.ne.jp/js/hatena_dfp2.js" charset="UTF-8"></script>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var days = document.getElementById('days');
+  if (days && days.innerHTML.indexOf("ýýýýý¤ýýý") != -1) {
+    _gaq.push(['_setCustomVar', 2, 'campaign', 'odai', 3]);
+  }
+
+  if (days && /\u4eca\u9031\u306e\u304a\u984c/.test(days.innerHTML)) {
+    _gaq.push(['_setCustomVar', 2, 'campaign', 'odai', 3]);
+  }
+
+  if (days && /ScanSnap\u7279\u5225\u30e2\u30c7\u30eb\u30fb\u30d6\u30ed\u30b0\u3067\u5ba3\u4f1d\u30b3\u30f3\u30c6\u30b9\u30c8/.test(days.innerHTML)) {
+    _gaq.push(['_setCustomVar', 2, 'campaign', 'scansnap1401bcn4ssacro', 3]);
+  }
+
+  if (days && /\u7279\u5225\u304a\u984c\u300c\u9752\u6625\u306e\u4e00\u518a\u300d/.test(days.innerHTML)) {
+    _gaq.push(['_setCustomVar', 2, 'campaign', 'pdmagazine', 3]);
+  }
+
+  if (days && /\u7279\u5225\u304a\u984c\u300c\u5fc3\u6e29\u307e\u308b\u30de\u30ca\u30fc\u306e\u8a71\u300d/.test(days.innerHTML)) {
+    _gaq.push(['_setCustomVar', 2, 'campaign', 'jrwest', 3]);
+  }
+
+  if (days && /Presso\u4f7f\u3063\u3066\u307f\u305f/.test(days.innerHTML)) {
+    _gaq.push(['_setCustomVar', 2, 'campaign', 'presso1404', 3]);
+  }
+
+  if (days && /CodeIQ\u306e\u554f\u984c\u30fb\u30d1\u30ba\u30eb\u3092\u8003\u3048\u3088\u3046\uff01/.test(days.innerHTML)) {
+    _gaq.push(['_setCustomVar', 2, 'campaign', 'codeiq_matsuri2013_2_2', 3]);
+  }
+
+  if (days && /2013\u5e74\u306b\u3084\u308a\u305f\u3044\u3053\u3068/.test(days.innerHTML)) {
+    _gaq.push(['_setCustomVar', 2, 'campaign', 'newyear2013', 3]);
+  }
+
+  if (days && /2012\u5e74\u30dc\u30c4\u738b\u6c7a\u5b9a\u6226\uff01\u30d5\u30eb\u30bf\u88fd\u83d3\ud7\u306f\u3066\u306a\u30d6\u30ed\u30b0\u304a\u984c\u30ad\u30e3\u30f3\u30da\u30fc\u30f3/.test(days.innerHTML)) {
+    _gaq.push(['_setCustomVar', 2, 'campaign', 'furuta', 3]);
+  }
+
+  if (days && /\u300c\u884c\u3063\u3066\u307f\u305f\u3044\u304a\u5e97\u30fb\u30ec\u30b9\u30c8\u30e9\u30f3\u300d/.test(days.innerHTML)) {
+    _gaq.push(['_setCustomVar', 2, 'campaign', 'gnavi201512', 3]);
+  }
+
+  if (days && /\u6d77\u5916\u30c9\u30e9\u30de\u300e\u30e9\u30a4\u30fb\u30c8\u30a5\u30fb\u30df\u30fc \u5618\u306e\u77ac\u9593\u300f\u89b3\u305f\u3044\uff01|\u300e\u30e9\u30a4\u30fb\u30c8\u30a5\u30fb\u30df\u30fc \u5618\u306e\u77ac\u9593\u300f\u7b2c1\u8a71\u306e\u611f\u60f3\u3092\u6559\u3048\u3066\u304f\u3060\u3055\u3044|\u4eca\u3060\u304b\u3089\u8a00\u3048\u308b\u300c\u5618\u3092\u3064\u3044\u3066\u3057\u307e\u3063\u305f\u30a8\u30d4\u30bd\u30fc\u30c9\u300d\u3092\u6559\u3048\u3066\u304f\u3060\u3055\u3044|\u3060\u307e\u3055\u308c\u305f\u3051\u3069\u3001\u8a31\u305b\u3066\u3057\u307e\u3063\u305f\u5618\u3092\u6559\u3048\u3066\u304f\u3060\u3055\u3044/.test(days.innerHTML)) {
+    _gaq.push(['_setCustomVar', 2, 'campaign', 'lietome', 3]);
+  }
+
+  if (days && /\u30de\u30a4\u30d9\u30b9\u30c8\u30bd\u30f3\u30b02013/.test(days.innerHTML)) {
+    _gaq.push(['_setCustomVar', 2, 'campaign', 'mybestsong2013', 3]);
+  }
+
+  if (days && /\u7d0d\u6dbc\uff01\u307b\u3093\u3068\u306b\u3042\u3063\u305f\u6016\u3044\u30b3\u30fc\u30c9/.test(days.innerHTML)) {
+    _gaq.push(['_setCustomVar', 2, 'campaign', 'codeiq_matsuri2013_2_1', 3]);
+  }
+
+  if (days && /\u590f\u306e\u5199\u771f2013/.test(days.innerHTML)) {
+    _gaq.push(['_setCustomVar', 2, 'campaign', 'photocon2013summer', 3]);
+  }
+
+  if (days && /Windows\/Office\u6b66\u52c7\u4f1d/.test(days.innerHTML)) {
+    _gaq.push(['_setCustomVar', 2, 'campaign', 'WindowsDevOpen', 3]);
+  }
+
+  if (days && /\u300c\u79c1\u306f\u3007\u3007\u738b\uff01\u300d\u30d0\u30a4\u30af\u738b\ud7\u306f\u3066\u306a\u30d6\u30ed\u30b0\u304a\u984c\u30ad\u30e3\u30f3\u30da\u30fc\u30f3/.test(days.innerHTML)) {
+    _gaq.push(['_setCustomVar', 2, 'campaign', 'bike-o', 3]);
+  }
+
+  if (days && /Visa\u30d7\u30ea\u30da\u30a4\u30c9\u300cV\u30d7\u30ea\u30ab\u300d\u8a66\u3057\u305f\u3044\uff01|Visa\u30d7\u30ea\u30da\u30a4\u30c9\u300cV\u30d7\u30ea\u30ab\u300d\u3001\u81ea\u5206\u306a\u3089\u3053\u3046\u4f7f\u3046\uff01|V\u30d7\u30ea\u30ab\u304c1\u4e07\u5186\u5206\u3042\u3063\u305f\u3089\u3001\u30cd\u30c3\u30c8\u3067\u4f55\u3092\u8cb7\u3044\u307e\u3059\u304b\uff1f/.test(days.innerHTML)) {
+    _gaq.push(['_setCustomVar', 2, 'campaign', 'vpreca', 3]);
+  }
+
+  if (days && /\u30a2\u30a4\u30c7\u30e0 \u30a8\u30f3\u30b8\u30cb\u30a2\u30ad\u30e3\u30ea\u30a2Hacks\u5171\u6709\u30d7\u30ed\u30b8\u30a7\u30af\u30c8|\u30a8\u30f3\u30b8\u30cb\u30a2\u3068\u3057\u3066\u306e\u3001\u3068\u3063\u3066\u304a\u304d\u306e\u30ad\u30e3\u30ea\u30a2Hacks\u3092\u6559\u3048\u3066\u304f\u3060\u3055\u3044|\u3042\u306a\u305f\u304c\u30a8\u30f3\u30b8\u30cb\u30a2\u8ee2\u8077\u30b5\u30a4\u30c8\u3092\u4f5c\u308b\u306a\u3089\u3001\u3069\u3093\u306a\u30b5\u30a4\u30c8\u306b\u3057\u307e\u3059\u304b\uff1f|5\u5e74\u5f8c\u306e\u300c\u30a8\u30f3\u30b8\u30cb\u30a2\u306e\u50cd\u304d\u65b9\u300d\u306f\u3001\u3069\u3046\u5909\u308f\u3063\u3066\u3044\u3066\u307b\u3057\u3044\u3067\u3059\u304b\uff1f/.test(days.innerHTML)) {
+    _gaq.push(['_setCustomVar', 2, 'campaign', 'aidemcareer', 3]);
+  }
+
+  if (days && /\u306f\u3066\u306a\u30c0\u30a4\u30a2\u30ea\u30fc10\u5468\u5e74\u304a\u3081\u3067\u3068\u3046\uff01/.test(days.innerHTML)) {
+    _gaq.push(['_setCustomVar', 2, 'campaign', 'hatenadiary10th', 3]);
+  }
+
+  if (days && /\u3086\u304f\u5e74\u304f\u308b\u5e742015/.test(days.innerHTML)) {
+    _gaq.push(['_setCustomVar', 2, 'campaign', '2014-2015campaign', 3]);
+  }
+
+  if (days && /\u8aad\u307f\u653e\u984c\u3067\u30b3\u30b9\u30d1\u3088\u3057\uff01\u96fb\u5b50\u66f8\u7c4d\u30a2\u30d7\u30eayomel.jp\u30ad\u30e3\u30f3\u30da\u30fc\u30f3/.test(days.innerHTML)) {
+    _gaq.push(['_setCustomVar', 2, 'campaign', 'yomel', 3]);
+  }
+
+  if (days && /\u30bb\u30c4\u30e4\u30af\u30a8\u30b9\u30c8/.test(days.innerHTML)) {
+    _gaq.push(['_setCustomVar', 2, 'campaign', 'setsuyaquest', 3]);
+  }
+
+  if (days && /\u79cb\u306e\u591c\u9577\u306f\u8aad\u66f8\u3068\u30d6\u30ed\u30b0/.test(days.innerHTML)) {
+    _gaq.push(['_setCustomVar', 2, 'campaign', 'bookreview2013fall', 3]);
+  }
+
+  if (days && /\u7279\u5225\u304a\u984c\u300c\u82b8\u8853\u306e\u79cb\u300d/.test(days.innerHTML)) {
+    _gaq.push(['_setCustomVar', 2, 'campaign', 'caillebotte', 3]);
+  }
+
+  if (days && /\u30a8\u30a4\u30d7\u30ea\u30eb\u30d5\u30fc\u30eb2014/.test(days.innerHTML)) {
+    _gaq.push(['_setCustomVar', 2, 'campaign', 'aprilfool2014', 3]);
+  }
+
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<!-- CG:1,CH:1,ICG:55,ICH:13,T: -->
+</body>
+</html>
